@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C03A-Td-qGU">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Selection Handler Demo View Controller-->
+        <scene sceneID="9Sp-nw-LtX">
+            <objects>
+                <viewController id="C03A-Td-qGU" customClass="SelectionHandlerDemoViewController" customModule="SelectionHandler" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DYe-LW-rIX">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selection Handler Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufi-Iz-9IX">
+                                <rect key="frame" x="20" y="100" width="353" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <color key="textColor" systemColor="systemColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Demo Stopped" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ge-ly-DUP">
+                                <rect key="frame" x="20" y="170" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OSp-LL-x5s">
+                                <rect key="frame" x="20" y="210" width="353" height="32"/>
+                                <segments>
+                                    <segment title="Foreground"/>
+                                    <segment title="Background"/>
+                                </segments>
+                                <connections>
+                                    <action selector="demoModeChanged:" destination="C03A-Td-qGU" eventType="valueChanged" id="FRO-lV-tCb"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4J-gq-b9w">
+                                <rect key="frame" x="20" y="260" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZVO-uB-AF3"/>
+                                </constraints>
+                                <state key="normal" title="Start Demo"/>
+                                <connections>
+                                    <action selector="startDemoTapped:" destination="C03A-Td-qGU" eventType="touchUpInside" id="Dy3-IN-k4U"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Demo Log
+===================" translatesAutoresizingMaskIntoConstraints="NO" id="vdP-Fz-X7J">
+                                <rect key="frame" x="20" y="340" width="353" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="jEK-6C-f8d"/>
+                                </constraints>
+                                <color key="textColor" systemColor="systemColor"/>
+                                <fontDescription key="fontDescription" type="monospaced" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes" smartDashesType="yes" smartQuotesType="yes" smartInsertDeleteType="yes"/>
+                            </textView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4E1-fq-QxP">
+                                <rect key="frame" x="20" y="660" width="200" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="D3m-Fw-5l6"/>
+                                </constraints>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwS-4u-8eV">
+                                <rect key="frame" x="240" y="660" width="133" height="50"/>
+                                <connections>
+                                    <action selector="sendTestSelectionTapped:" destination="C03A-Td-qGU" eventType="touchUpInside" id="wON-rq-T7s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4e-8K-gXD">
+                                <rect key="frame" x="240" y="720" width="133" height="50"/>
+                                <connections>
+                                    <action selector="clearLogTapped:" destination="C03A-Td-qGU" eventType="touchUpInside" id="dXk-Ib-TDR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8Ge-ly-DUP" firstAttribute="top" secondItem="Ufi-Iz-9IX" secondAttribute="bottom" constant="29" id="0yi-kv-eTh"/>
+                            <constraint firstItem="OSp-LL-x5s" firstAttribute="top" secondItem="8Ge-ly-DUP" secondAttribute="bottom" constant="19" id="5bM-yK-Zwp"/>
+                            <constraint firstItem="Ufi-Iz-9IX" firstAttribute="top" secondItem="DYe-LW-rIX" secondAttribute="top" constant="100" id="8kq-Ww-Rsh"/>
+                            <constraint firstItem="4E1-fq-QxP" firstAttribute="leading" secondItem="DYe-LW-rIX" secondAttribute="leading" constant="20" id="BPD-Y4-Tf2"/>
+                            <constraint firstItem="J4J-gq-b9w" firstAttribute="top" secondItem="OSp-LL-x5s" secondAttribute="bottom" constant="18" id="BfE-mW-sq8"/>
+                            <constraint firstItem="DYe-LW-rIX" firstAttribute="trailing" secondItem="Ufi-Iz-9IX" secondAttribute="trailing" constant="20" id="CiO-cB-BCO"/>
+                            <constraint firstItem="g4e-8K-gXD" firstAttribute="bottom" secondItem="DYe-LW-rIX" secondAttribute="bottom" constant="20" id="DEs-Tv-hKg"/>
+                            <constraint firstItem="lwS-4u-8eV" firstAttribute="top" secondItem="4E1-fq-QxP" secondAttribute="top" constant="0.0" id="EHh-I1-L7G"/>
+                            <constraint firstItem="vdP-Fz-X7J" firstAttribute="top" secondItem="J4J-gq-b9w" secondAttribute="bottom" constant="30" id="GlP-Ka-HBj"/>
+                            <constraint firstItem="Ufi-Iz-9IX" firstAttribute="leading" secondItem="DYe-LW-rIX" secondAttribute="leading" constant="20" id="Iog-Zt-E0v"/>
+                            <constraint firstItem="J4J-gq-b9w" firstAttribute="leading" secondItem="DYe-LW-rIX" secondAttribute="leading" constant="20" id="LBo-pf-wD2"/>
+                            <constraint firstItem="g4e-8K-gXD" firstAttribute="leading" secondItem="lwS-4u-8eV" secondAttribute="trailing" constant="13" id="LCw-Rj-0LA"/>
+                            <constraint firstItem="g4e-8K-gXD" firstAttribute="width" secondItem="lwS-4u-8eV" secondAttribute="width" id="LGA-fH-3KN"/>
+                            <constraint firstItem="lwS-4u-8eV" firstAttribute="leading" secondItem="DYe-LW-rIX" secondAttribute="leading" constant="240" id="M0k-Qk-7LC"/>
+                            <constraint firstItem="4E1-fq-QxP" firstAttribute="top" secondItem="vdP-Fz-X7J" secondAttribute="bottom" constant="20" id="MGL-fD-MCL"/>
+                            <constraint firstItem="8Ge-ly-DUP" firstAttribute="leading" secondItem="DYe-LW-rIX" secondAttribute="leading" constant="20" id="OQS-aL-FVP"/>
+                            <constraint firstItem="DYe-LW-rIX" firstAttribute="trailing" secondItem="8Ge-ly-DUP" secondAttribute="trailing" constant="20" id="PY8-OM-eMU"/>
+                            <constraint firstItem="OSp-LL-x5s" firstAttribute="leading" secondItem="DYe-LW-rIX" secondAttribute="leading" constant="20" id="Qcx-Kf-dBV"/>
+                            <constraint firstItem="DYe-LW-rIX" firstAttribute="trailing" secondItem="OSp-LL-x5s" secondAttribute="trailing" constant="20" id="Qge-3S-FDB"/>
+                            <constraint firstItem="DYe-LW-rIX" firstAttribute="trailing" secondItem="J4J-gq-b9w" secondAttribute="trailing" constant="20" id="T6L-Yq-hVE"/>
+                            <constraint firstItem="vdP-Fz-X7J" firstAttribute="leading" secondItem="DYe-LW-rIX" secondAttribute="leading" constant="20" id="UeT-hd-4tX"/>
+                            <constraint firstItem="DYe-LW-rIX" firstAttribute="trailing" secondItem="vdP-Fz-X7J" secondAttribute="trailing" constant="20" id="YwX-Xf-3bp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hzl-fF-xKs"/>
+                    </connections>
+                    <connections>
+                        <outlet property="appSelector" destination="4E1-fq-QxP" id="Xqw-Gx-pKb"/>
+                        <outlet property="demoModeSegmentedControl" destination="OSp-LL-x5s" id="mEu-eD-waO"/>
+                        <outlet property="logTextView" destination="vdP-Fz-X7J" id="IFW-ei-EuG"/>
+                        <outlet property="startButton" destination="J4J-gq-b9w" id="btg-7f-p5z"/>
+                        <outlet property="statusLabel" destination="8Ge-ly-DUP" id="1PJ-mI-4hQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="29" y="27"/>
+        </scene>
+    </scenes>
+</document>
