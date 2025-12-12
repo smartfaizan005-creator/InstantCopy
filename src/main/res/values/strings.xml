@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Text Selection Service</string>
+    <string name="accessibility_service_description">Captures selected text and copies to clipboard</string>
+    <string name="pref_sensitivity_threshold">Sensitivity Threshold</string>
+    <string name="pref_sensitivity_threshold_default">300</string>
+    <string name="pref_service_enabled">Enable Text Selection Service</string>
+</resources>
