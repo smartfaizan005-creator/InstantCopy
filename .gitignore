@@ -1,0 +1,88 @@
+# Gradle files
+.gradle/
+build/
+*.apk
+*.ap_
+*.aab
+*.aar
+
+# Local configuration file (SDK path, etc)
+local.properties
+
+# Android Studio files
+.idea/
+*.iml
+*.iws
+*.ipr
+.DS_Store
+out/
+
+# IntelliJ
+*.log
+.navigation
+captured_classes/
+.cxx/
+
+# VS Code
+.vscode/
+.settings/
+.classpath
+.project
+
+# Covers
+.editorconfig
+
+# Misc files
+*.swp
+*.swo
+*~
+.thumb
+
+# Mac
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+
+# Test coverage
+coverage/
+jacoco/
+*.ec
+*.exec
+
+# Build outputs
+bin/
+gen/
+
+# Node modules (if using any node tools)
+node_modules/
+npm-debug.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+.#*
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*~.nib
+
+# Lint reports
+lint-results.xml
+lint-results.html
+
+# Gradle wrapper
+!gradle/wrapper/gradle-wrapper.jar
+
+# Environment files
+.env
+.env.local
+
+# Generated files
+gen-gradle/
