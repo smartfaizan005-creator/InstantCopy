@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InstantCopy Settings</string>
+    <string name="accessibility_service_description">InstantCopy accessibility service for automated copying functionality</string>
+    <string name="accessibility_service_summary">Provides instant copy functionality</string>
+    
+    <!-- Settings Screen -->
+    <string name="settings_title">InstantCopy Settings</string>
+    <string name="master_enable_title">Master Enable</string>
+    <string name="master_enable_description">Turn InstantCopy functionality on or off</string>
+    <string name="sensitivity_title">Sensitivity</string>
+    <string name="sensitivity_description">Press duration threshold in milliseconds</string>
+    <string name="auto_start_title">Auto-start on Boot</string>
+    <string name="auto_start_description">Automatically enable InstantCopy when device boots</string>
+    <string name="current_settings_title">Current Settings</string>
+    
+    <!-- Status Messages -->
+    <string name="status_enabled">Enabled</string>
+    <string name="status_disabled">Disabled</string>
+    <string name="status_on">On</string>
+    <string name="status_off">Off</string>
+    <string name="milliseconds_suffix">ms</string>
+    
+    <!-- Accessibility Labels -->
+    <string name="accessibility_settings_screen">InstantCopy Settings Screen</string>
+    <string name="accessibility_master_toggle">Master Enable Toggle</string>
+    <string name="accessibility_sensitivity_slider">Sensitivity Slider</string>
+    <string name="accessibility_auto_start_toggle">Auto-start on Boot Toggle</string>
+    <string name="accessibility_status_card">Current Settings Status</string>
+    <string name="accessibility_sensitivity_value">Current sensitivity value %d milliseconds</string>
+    <string name="accessibility_sensitivity_slider_desc">Sensitivity adjustment slider</string>
+    
+    <!-- Toast Messages -->
+    <string name="toast_instantcopy_enabled">InstantCopy enabled</string>
+    <string name="toast_instantcopy_disabled">InstantCopy disabled</string>
+    <string name="toast_content_copied">Content copied</string>
+</resources>
