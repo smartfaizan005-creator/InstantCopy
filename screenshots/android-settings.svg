@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="600" viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Android Settings Screen Mockup -->
+  <defs>
+    <style>
+      .status-bar { fill: #000000; }
+      .header { fill: #1976D2; }
+      .text-primary { fill: #FFFFFF; font-family: Arial, sans-serif; font-size: 18px; }
+      .text-secondary { fill: #FFFFFF; font-family: Arial, sans-serif; font-size: 14px; }
+      .setting-item { fill: #FFFFFF; }
+      .setting-text { fill: #212121; font-family: Arial, sans-serif; font-size: 16px; }
+      .switch-bg { fill: #E0E0E0; }
+      .switch-on { fill: #4CAF50; }
+      .switch-thumb { fill: #FFFFFF; stroke: #BDBDBD; stroke-width: 1; }
+    </style>
+  </defs>
+  
+  <!-- Status Bar -->
+  <rect class="status-bar" width="300" height="24"/>
+  <text x="15" y="17" fill="#FFFFFF" font-family="Arial" font-size="12">9:41</text>
+  <text x="250" y="17" fill="#FFFFFF" font-family="Arial" font-size="12">100%</text>
+  
+  <!-- Header -->
+  <rect class="header" width="300" height="56"/>
+  <text x="20" y="35" class="text-primary">Settings</text>
+  <text x="20" y="50" class="text-secondary">InstantCopy</text>
+  
+  <!-- Settings Items -->
+  <g transform="translate(0, 90)">
+    <!-- Accessibility Service -->
+    <rect class="setting-item" width="300" height="60"/>
+    <text x="20" y="25" class="setting-text">Accessibility Service</text>
+    <text x="20" y="45" fill="#757575" font-family="Arial" font-size="12">Enable clipboard monitoring</text>
+    <circle cx="260" cy="30" r="8" fill="#4CAF50"/>
+    <circle cx="260" cy="30" r="4" fill="#FFFFFF"/>
+  </g>
+  
+  <g transform="translate(0, 150)">
+    <!-- Background Apps -->
+    <rect class="setting-item" width="300" height="60"/>
+    <text x="20" y="25" class="setting-text">Background Activity</text>
+    <text x="20" y="45" fill="#757575" font-family="Arial" font-size="12">Allow background monitoring</text>
+    <circle cx="260" cy="30" r="8" fill="#4CAF50"/>
+    <circle cx="260" cy="30" r="4" fill="#FFFFFF"/>
+  </g>
+  
+  <g transform="translate(0, 210)">
+    <!-- Notifications -->
+    <rect class="setting-item" width="300" height="60"/>
+    <text x="20" y="25" class="setting-text">Notifications</text>
+    <text x="20" y="45" fill="#757575" font-family="Arial" font-size="12">Show copy notifications</text>
+    <circle cx="260" cy="30" r="8" fill="#4CAF50"/>
+    <circle cx="260" cy="30" r="4" fill="#FFFFFF"/>
+  </g>
+  
+  <g transform="translate(0, 270)">
+    <!-- Background Indicator -->
+    <rect class="setting-item" width="300" height="60"/>
+    <text x="20" y="25" class="setting-text">Background Indicator</text>
+    <text x="20" y="45" fill="#757575" font-family="Arial" font-size="12">Show monitoring status</text>
+    <circle cx="260" cy="30" r="8" fill="#E0E0E0"/>
+    <circle cx="260" cy="30" r="4" fill="#FFFFFF"/>
+  </g>
+  
+  <g transform="translate(0, 330)">
+    <!-- Copy Notification -->
+    <rect class="setting-item" width="300" height="60"/>
+    <text x="20" y="25" class="setting-text">Copy Notification</text>
+    <text x="20" y="45" fill="#757575" font-family="Arial" font-size="12">Visual feedback on copy</text>
+    <circle cx="260" cy="30" r="8" fill="#4CAF50"/>
+    <circle cx="260" cy="30" r="4" fill="#FFFFFF"/>
+  </g>
+  
+  <!-- Bottom Navigation (Android style) -->
+  <g transform="translate(0, 540)">
+    <rect fill="#F5F5F5" width="300" height="60"/>
+    <rect x="50" y="15" width="40" height="4" fill="#1976D2"/>
+    <rect x="130" y="15" width="40" height="4" fill="#BDBDBD"/>
+    <rect x="210" y="15" width="40" height="4" fill="#BDBDBD"/>
+  </g>
+</svg>

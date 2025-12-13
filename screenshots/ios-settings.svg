@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="600" viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- iOS Settings Screen Mockup -->
+  <defs>
+    <style>
+      .status-bar { fill: #000000; }
+      .header { fill: #F2F2F2; }
+      .text-primary { fill: #000000; font-family: Arial, sans-serif; font-size: 18px; }
+      .text-secondary { fill: #000000; font-family: Arial, sans-serif; font-size: 14px; }
+      .setting-group { fill: #F2F2F2; }
+      .setting-item { fill: #FFFFFF; }
+      .setting-text { fill: #000000; font-family: Arial, sans-serif; font-size: 16px; }
+      .setting-subtext { fill: #8E8E93; font-family: Arial, font-size: 12px; }
+      .switch { fill: #34C759; }
+      .switch-thumb { fill: #FFFFFF; }
+    </style>
+  </defs>
+  
+  <!-- Status Bar -->
+  <rect class="status-bar" width="300" height="24"/>
+  <text x="130" y="17" fill="#FFFFFF" font-family="Arial" font-size="14" font-weight="bold">9:41</text>
+  <text x="250" y="17" fill="#FFFFFF" font-family="Arial" font-size="12">100%</text>
+  
+  <!-- Header -->
+  <rect class="header" width="300" height="60"/>
+  <text x="20" y="40" class="text-primary">Settings</text>
+  
+  <!-- Settings Groups -->
+  <g transform="translate(0, 80)">
+    <!-- InstantCopy Group -->
+    <rect class="setting-group" width="300" height="30"/>
+    <text x="20" y="20" class="setting-subtext">InstantCopy</text>
+    
+    <g transform="translate(0, 30)">
+      <!-- Accessibility -->
+      <rect class="setting-item" width="300" height="50"/>
+      <text x="20" y="25" class="setting-text">Accessibility</text>
+      <text x="20" y="40" class="setting-subtext">Enable for clipboard access</text>
+      <circle cx="260" cy="25" r="15" class="switch"/>
+      <circle cx="260" cy="25" r="12" class="switch-thumb"/>
+    </g>
+    
+    <g transform="translate(0, 80)">
+      <!-- Background App Refresh -->
+      <rect class="setting-item" width="300" height="50"/>
+      <text x="20" y="25" class="setting-text">Background App Refresh</text>
+      <text x="20" y="40" class="setting-subtext">Allow background activity</text>
+      <circle cx="260" cy="25" r="15" class="switch"/>
+      <circle cx="260" cy="25" r="12" class="switch-thumb"/>
+    </g>
+  </g>
+  
+  <g transform="translate(0, 230)">
+    <!-- App Settings Group -->
+    <rect class="setting-group" width="300" height="30"/>
+    <text x="20" y="20" class="setting-subtext">App Settings</text>
+    
+    <g transform="translate(0, 30)">
+      <!-- Notifications -->
+      <rect class="setting-item" width="300" height="50"/>
+      <text x="20" y="25" class="setting-text">Notifications</text>
+      <text x="20" y="40" class="setting-subtext">Copy alerts and status</text>
+      <circle cx="260" cy="25" r="15" class="switch"/>
+      <circle cx="260" cy="25" r="12" class="switch-thumb"/>
+    </g>
+    
+    <g transform="translate(0, 50)">
+      <!-- Privacy Mode -->
+      <rect class="setting-item" width="300" height="50"/>
+      <text x="20" y="25" class="setting-text">Privacy Mode</text>
+      <text x="20" y="40" class="setting-subtext">Disable all logging</text>
+      <circle cx="260" cy="25" r="15" fill="#E5E5EA"/>
+      <circle cx="248" cy="25" r="12" class="switch-thumb"/>
+    </g>
+    
+    <g transform="translate(0, 100)">
+      <!-- Background Indicator -->
+      <rect class="setting-item" width="300" height="50"/>
+      <text x="20" y="25" class="setting-text">Background Indicator</text>
+      <text x="20" y="40" class="setting-subtext">Show monitoring status</text>
+      <circle cx="260" cy="25" r="15" class="switch"/>
+      <circle cx="260" cy="25" r="12" class="switch-thumb"/>
+    </g>
+  </g>
+  
+  <!-- Home Indicator (iOS style) -->
+  <g transform="translate(0, 570)">
+    <rect fill="#F2F2F2" width="300" height="30"/>
+    <rect x="130" y="8" width="40" height="4" fill="#8E8E93" rx="2"/>
+  </g>
+</svg>
