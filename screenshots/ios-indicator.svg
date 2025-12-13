@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- iOS Background Indicator Mockup -->
+  <defs>
+    <style>
+      .status-bar { fill: #000000; }
+      .text-primary { fill: #FFFFFF; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; }
+      .text-secondary { fill: #FFFFFF; font-family: Arial, sans-serif; font-size: 12px; }
+      .indicator-bg { fill: #1C1C1E; opacity: 0.85; }
+      .indicator-border { fill: none; stroke: #007AFF; stroke-width: 1.5; }
+      .indicator-icon { fill: #30D158; }
+      .notification-bg { fill: #1C1C1E; opacity: 0.95; }
+      .notification-text { fill: #FFFFFF; font-family: Arial, sans-serif; font-size: 11px; }
+    </style>
+  </defs>
+  
+  <!-- Status Bar -->
+  <rect class="status-bar" width="300" height="24"/>
+  <text x="130" y="17" fill="#FFFFFF" font-family="Arial" font-size="12" font-weight="bold">9:41</text>
+  <text x="250" y="17" fill="#FFFFFF" font-family="Arial" font-size="10">100%</text>
+  
+  <!-- App Content Area -->
+  <rect fill="#F2F2F7" width="300" height="176"/>
+  <text x="20" y="50" fill="#000000" font-family="Arial" font-size="16" font-weight="600">Notes</text>
+  <rect x="20" y="65" width="260" height="90" fill="#FFFFFF" stroke="#D1D1D6" rx="8"/>
+  <text x="30" y="85" fill="#8E8E93" font-family="Arial" font-size="12">Text message copied...</text>
+  
+  <!-- iOS-style Background Monitoring Indicator -->
+  <g transform="translate(270, 45)">
+    <!-- More subtle iOS-style indicator -->
+    <circle cx="0" cy="0" r="8" class="indicator-bg" rx="4"/>
+    <circle cx="0" cy="0" r="10" class="indicator-border" opacity="0.4"/>
+    
+    <!-- Minimal clipboard icon -->
+    <g transform="translate(-4, -4)">
+      <rect x="0" y="1" width="8" height="6" class="indicator-icon" rx="0.5"/>
+      <rect x="1.5" y="0" width="5" height="2" class="indicator-icon" rx="0.5"/>
+    </g>
+    
+    <!-- Gentle pulse effect -->
+    <circle cx="0" cy="0" r="12" fill="none" stroke="#30D158" stroke-width="1" opacity="0.15">
+      <animate attributeName="r" values="8;14;8" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0;0.2" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- iOS-style Notification -->
+  <g transform="translate(25, 120)">
+    <rect class="notification-bg" width="250" height="35" rx="17.5"/>
+    <circle cx="25" cy="17.5" r="5" class="indicator-icon"/>
+    <text x="40" y="21" class="notification-text">Copied to clipboard</text>
+  </g>
+  
+  <!-- iOS Home Indicator -->
+  <g transform="translate(0, 170)">
+    <rect fill="#F2F2F7" width="300" height="30"/>
+    <rect x="130" y="13" width="40" height="4" fill="#8E8E93" rx="2"/>
+  </g>
+  
+  <!-- iOS status indicator -->
+  <text x="20" y="15" fill="#30D158" font-family="Arial" font-size="9" opacity="0.6">● Active</text>
+</svg>
