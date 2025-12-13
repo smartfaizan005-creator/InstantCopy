@@ -9,33 +9,38 @@
 .history
 .svn/
 
-# IntelliJ
+# IntelliJ / Android Studio
 *.iml
 *.ipr
 *.iws
 .idea/
+.gradle/
 
 # Visual Studio Code
 .vscode/
 
-# Flutter/Dart/Pub related
-**/doc/api/
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
-.packages
-.pub-cache/
-.pub/
-/build/
+# Gradle
+gradlew.lock
+*.gradle.kts~
+local.properties
+
+# Build outputs
+build/
+out/
+*.apk
+*.aab
+*.ipa
+*.xcarchive
 
 # Android related
-**/android/**/gradlew
-**/android/**/gradlew.bat
 **/android/**/local.properties
 **/android/**/GeneratedPluginRegistrant.java
 **/android/captures/
+**/android/.gradle/
+**/android/build/
+**/android/.idea/
 
-# iOS/XCode related
+# iOS/Xcode related
 **/ios/**/*.mode1v3
 **/ios/**/*.mode2v3
 **/ios/**/*.moved-aside
@@ -51,56 +56,74 @@
 **/ios/**/profile
 **/ios/**/xcuserdata
 **/ios/.generated/
-**/ios/Flutter/App.framework
-**/ios/Flutter/Flutter.framework
-**/ios/Flutter/Flutter.podspec
-**/ios/Flutter/Generated.xcconfig
-**/ios/Flutter/app.flx
-**/ios/Flutter/app.zip
-**/ios/Flutter/flutter_assets/
-**/ios/ServiceDefinitions.json
-**/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/Flutter/
+**/ios/Podfile.lock
+**/ios/Pods/
+**/ios/.workspace/
+
+# Kotlin Multiplatform Mobile
+.kotlin/
+.konan/
 
 # Coverage
 coverage/
+*.lcov
 
-# Exceptions to above rules.
-!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
-!/dev/ci/**/Gemfile.lock
-
-# Web
-/web/
-
-# macOS
-/ macos/
-
-# Windows
-/windows/
-
-# Linux
-/linux/
-
-# Build outputs
-build/
-out/
+# Temporary files
+tmp/
+temp/
 
 # Debug info for size analysis
 build/debug-info/
-
-# Screenshots (keep originals, ignore optimized versions)
-screenshots/optimized/
-*.webp
-*.png.optimized
-*.jpg.optimized
-
-# Size optimization tools
-*.png.bak
-*.jpg.bak
 
 # Documentation builds
 docs/build/
 site/
 
-# Temporary files
-tmp/
-temp/
+# Size optimization tools
+*.png.bak
+*.jpg.bak
+*.png.optimized
+*.jpg.optimized
+*.webp
+
+# Screenshots (keep originals, ignore optimized versions)
+screenshots/optimized/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Linux
+.directory
+
+# JVM
+.classpath
+.project
+.settings/
+bin/
+out/
+
+# Local environment
+keystore.jks
+*.jks
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/

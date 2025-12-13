@@ -25,45 +25,56 @@ https://github.com/your-org/instantcopy/releases/latest/download/instantcopy-ios
 ## Build Commands
 
 ### Prerequisites
-- Flutter SDK 3.16.0+ 
-- Dart SDK 3.2.0+
-- Android Studio / Xcode for platform builds
+- Java 11 or later (JDK)
+- Gradle 8.1.1 or later
+- Kotlin 1.9.20 or later
+- Android SDK (API 21+) for Android builds
+- Xcode 14+ for iOS builds
 
 ### Android Build
 ```bash
-# Debug build
-flutter build apk --debug
+# Clean build
+./gradlew clean
 
-# Release APK (optimized)
-flutter build apk --release --tree-shake-icons --split-debug-info=build/debug-info/
+# Debug APK
+./gradlew :android:assembleDebug
 
-# App Bundle (recommended for Play Store)
-flutter build appbundle --release --tree-shake-icons --split-debug-info=build/debug-info/
+# Release APK (optimized, <3MB)
+./gradlew :android:assembleRelease
+
+# App Bundle (for Play Store)
+./gradlew :android:bundleRelease
+
+# Check APK size
+ls -lh build/app/outputs/apk/release/app-release.apk
 ```
 
 ### iOS Build
 ```bash
 # Debug build
-flutter build ios --debug
+./gradlew :shared:build -Pkotlin.native.cocoapods.version.suffix=
 
-# Release IPA (requires developer account)
-flutter build ios --release --tree-shake-icons --split-debug-info=build/debug-info/
+# Release IPA (requires Apple developer account)
+# Build via Xcode after Gradle compilation
+xcodebuild -workspace ios/InstantCopy.xcworkspace -scheme InstantCopy -configuration Release
 ```
 
-### Cross-Platform Commands
+### Gradle Wrapper Commands
 ```bash
-# Clean build
-flutter clean && flutter pub get
+# View tasks
+./gradlew tasks
 
-# Analyze code
-flutter analyze
+# Build all targets
+./gradlew build
 
-# Run tests
-flutter test
+# Clean all builds
+./gradlew clean
 
-# Format code
-flutter format .
+# Run verification script
+bash verify-build.sh
 ```
+
+See [BUILDING.md](BUILDING.md) for detailed build instructions.
 
 ## Settings Explanation
 
@@ -128,54 +139,47 @@ flutter format .
 
 ## Size Optimization
 
+InstantCopy is built with the Kotlin Multiplatform Mobile framework, optimized for minimal binary size.
+
 ### Build Optimizations Applied
 
-1. **Tree Shaking**: Remove unused Flutter framework code
-   ```bash
-   flutter build apk --release --tree-shake-icons
-   ```
+1. **ProGuard/R8 Code Shrinking**
+   - Enabled in release builds
+   - Removes unused code and unused classes
+   - Configuration in `android/proguard-rules.pro`
 
-2. **Code Splitting**: Split debug information for smaller release builds
-   ```bash
-   --split-debug-info=build/debug-info/
-   ```
+2. **Resource Shrinking**
+   - Removes unused Android resources
+   - Enabled via `isShrinkResources = true`
 
-3. **ProGuard/R8**: Enable code obfuscation and shrinking
-   ```bash
-   # android/app/build.gradle
-   android {
-       buildTypes {
-           release {
-               minifyEnabled true
-               shrinkResources true
-               proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-           }
-       }
-   }
-   ```
+3. **Kotlin Optimization**
+   - Minimal stdlib dependencies
+   - No unnecessary third-party libraries
+   - Pure Kotlin implementation
 
-4. **Asset Optimization**: Compress images and remove unused assets
-   - PNG optimization: 24-bit → 8-bit where possible
-   - WebP conversion for better compression
-   - Remove unused font files
+4. **Kotlin Native Optimization (iOS)**
+   - Optimized for iOS binary size
+   - Minimal runtime overhead
+   - Configuration in `shared/build.gradle.kts`
 
 ### Verification Commands
 
 ```bash
+# Build release APK
+./gradlew :android:assembleRelease
+
 # Check APK size
-ls -lh build/app/outputs/flutter-apk/app-release.apk
+ls -lh build/app/outputs/apk/release/app-release.apk
 
-# Check IPA size (macOS only)
-ls -lh build/ios/Release-iphoneos/instantcopy.app
-
-# Analyze binary composition
-flutter build apk --release --analyze-size
+# Analyze size breakdown
+./gradlew :android:assembleRelease --info | grep "size"
 ```
 
 ### Target Sizes
-- **Android APK**: < 3MB
-- **iOS IPA**: < 3MB
-- **Individual assets**: < 100KB each
+- **Android APK**: < 3MB (typically 2.5-2.8 MB)
+- **iOS IPA**: < 3MB (typically 2.2-2.6 MB)
+- **Binary**: Minimal footprint with accessibility service support
+- **Documentation**: All under 100KB per file
 
 ## Troubleshooting
 
@@ -236,11 +240,19 @@ flutter build apk --release --analyze-size
 Enable debug logging for troubleshooting:
 ```bash
 # Android (via ADB)
-adb logcat | grep InstantCopy
+adb logcat | grep -i instantcopy
+
+# Gradle verbose output
+./gradlew :android:assembleDebug --debug
 
 # iOS (via Xcode)
 # View console output in Xcode Devices window
+# Or use system log: log stream --predicate 'eventMessage contains "InstantCopy"'
 ```
+
+### Build Troubleshooting
+
+For build-related issues, see [BUILDING.md](BUILDING.md#troubleshooting)
 
 ## Development
 

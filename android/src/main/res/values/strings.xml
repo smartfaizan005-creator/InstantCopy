@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InstantCopy</string>
+    <string name="accessibility_service_description">InstantCopy monitors text selection and automatically copies selected text to your clipboard</string>
+</resources>
