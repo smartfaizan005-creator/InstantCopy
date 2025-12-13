@@ -1,0 +1,64 @@
+# Gradle
+.gradle/
+build/
+!gradle-wrapper.jar
+*.iml
+.idea/
+local.properties
+
+# Android
+*.apk
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+out/
+captures/
+.externalNativeBuild
+.cxx/
+
+# iOS
+*.xcworkspace
+!default.xcworkspace
+xcuserdata/
+*.xcuserstate
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+Pods/
+
+# macOS
+.DS_Store
+
+# Kotlin
+*.kotlin_module
+*.kotlin_metadata
+
+# Maven
+target/
+
+# IntelliJ IDEA
+*.iws
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/assetWizardSettings.xml
+.idea/dictionaries
+.idea/libraries
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/navEditor.xml
+
+# VS Code
+.vscode/
+
+# System
+*~
+.swp
+.swo
