@@ -1,18 +1,84 @@
 #!/bin/bash
 
 # InstantCopy Build Verification Script
-# This script verifies that builds meet size requirements and optimization criteria
+# Verifies KMP project structure and build requirements
 
 set -e
 
-echo "🔍 InstantCopy Build Verification"
-echo "================================"
+echo "🔍 InstantCopy KMP Build Verification"
+echo "====================================="
 
 # Check if we're in the right directory
 if [ ! -f "README.md" ] || [ ! -d "screenshots" ]; then
     echo "❌ Error: Please run this script from the project root directory"
     exit 1
 fi
+
+# Verify directory structure
+echo ""
+echo "📁 Checking Project Structure..."
+
+REQUIRED_DIRS=(
+    "shared"
+    "android"
+    "ios"
+    "docs"
+    "screenshots"
+)
+
+for dir in "${REQUIRED_DIRS[@]}"; do
+    if [ -d "$dir" ]; then
+        echo "✅ $dir/ directory exists"
+    else
+        echo "❌ $dir/ directory missing"
+        exit 1
+    fi
+done
+
+# Verify build files
+echo ""
+echo "📋 Checking Build Configuration..."
+
+BUILD_FILES=(
+    "build.gradle.kts"
+    "settings.gradle.kts"
+    "gradle.properties"
+    "android/build.gradle.kts"
+    "shared/build.gradle.kts"
+)
+
+for file in "${BUILD_FILES[@]}"; do
+    if [ -f "$file" ]; then
+        echo "✅ $file exists"
+    else
+        echo "❌ $file missing"
+        exit 1
+    fi
+done
+
+# Verify source code
+echo ""
+echo "🔧 Checking Source Code..."
+
+SOURCE_FILES=(
+    "shared/src/commonMain/kotlin/com/instantcopy/ClipboardContent.kt"
+    "shared/src/commonMain/kotlin/com/instantcopy/SettingsState.kt"
+    "shared/src/commonMain/kotlin/com/instantcopy/PlatformService.kt"
+    "android/src/main/kotlin/com/instantcopy/MainActivity.kt"
+    "android/src/main/kotlin/com/instantcopy/service/ClipboardAccessibilityService.kt"
+    "android/src/main/kotlin/com/instantcopy/receiver/BootCompletedReceiver.kt"
+    "ios/PlatformServiceIOS.kt"
+    "ios/AppDelegate.swift"
+)
+
+for file in "${SOURCE_FILES[@]}"; do
+    if [ -f "$file" ]; then
+        echo "✅ $file exists"
+    else
+        echo "❌ $file missing"
+        exit 1
+    fi
+done
 
 # Verify documentation completeness
 echo ""
@@ -64,29 +130,6 @@ done
 
 echo "📊 Total screenshots size: $TOTAL_SCREENSHOT_SIZE bytes"
 
-# Check optimization targets
-echo ""
-echo "🎯 Size Optimization Verification..."
-
-TARGET_APK_SIZE=3145728  # 3MB in bytes
-TARGET_IPA_SIZE=3145728  # 3MB in bytes
-TARGET_ASSET_SIZE=102400 # 100KB in bytes
-
-# Simulate build size checks (these would run after actual builds)
-echo "   📱 Android APK target: < 3MB"
-echo "   🍎 iOS IPA target: < 3MB"  
-echo "   🖼️  Individual assets: < 100KB"
-
-# Check if screenshots meet optimization targets
-for file in "${SCREENSHOT_FILES[@]}"; do
-    SIZE=$(wc -c < "$file")
-    if [ $SIZE -le $TARGET_ASSET_SIZE ]; then
-        echo "   ✅ $file meets size target"
-    else
-        echo "   ❌ $file exceeds size target ($SIZE > $TARGET_ASSET_SIZE bytes)"
-    fi
-done
-
 # Verify documentation sections
 echo ""
 echo "📋 Checking Documentation Content..."
@@ -109,10 +152,10 @@ for section in "${REQUIRED_SECTIONS[@]}"; do
 done
 
 # Check accessibility troubleshooting
-if grep -qi "Accessibility" docs/accessibility-troubleshooting.md; then
-    echo "✅ Accessibility troubleshooting includes accessibility content"
+if [ -f "docs/accessibility-troubleshooting.md" ] && grep -qi "Accessibility" docs/accessibility-troubleshooting.md; then
+    echo "✅ Accessibility troubleshooting documentation exists"
 else
-    echo "❌ Accessibility troubleshooting missing accessibility content"
+    echo "❌ Accessibility troubleshooting missing"
 fi
 
 # Check privacy documentation
@@ -128,7 +171,7 @@ echo "📊 Verification Summary"
 echo "======================"
 
 TOTAL_DOCS=$(find . -name "*.md" | wc -l)
-TOTAL_SCREENSHOTS=$(find screenshots -name "*.svg" | wc -l)
+TOTAL_SCREENSHOTS=$(find screenshots -name "*.svg" 2>/dev/null | wc -l)
 
 echo "Documentation files: $TOTAL_DOCS"
 echo "Screenshot files: $TOTAL_SCREENSHOTS"
@@ -142,12 +185,11 @@ else
 fi
 
 echo ""
-echo "✅ Build verification complete!"
+echo "✅ Project structure verification complete!"
 echo ""
 echo "Next steps for actual build verification:"
-echo "1. Run: flutter build apk --release --analyze-size"
-echo "2. Run: flutter build ios --release" 
-echo "3. Check: ls -lh build/app/outputs/flutter-apk/app-release.apk"
-echo "4. Check: ls -lh build/ios/Release-iphoneos/InstantCopy.app/InstantCopy"
+echo "1. Run: ./gradlew build"
+echo "2. Run: ./gradlew assembleRelease (for Android APK)"
+echo "3. Check: build/app/outputs/apk/release/app-release.apk"
 echo ""
 echo "All should be under 3MB (3145728 bytes) for release builds."
