@@ -10,17 +10,17 @@ A lightweight cross-platform clipboard manager with accessibility permissions fo
 - ⚡ **Lightweight**: Optimized binaries under 3MB
 - ♿ **Accessibility-Based**: Uses platform accessibility services for reliable operation
 
-## One-Line Installation
+## 📥 Download
 
-### Android (Obtainium)
-```
-https://github.com/your-org/instantcopy/releases/latest/download/instantcopy-android.apk
-```
+Get the latest InstantCopy APK:
 
-### iOS (GitHub)
-```
-https://github.com/your-org/instantcopy/releases/latest/download/instantcopy-ios.ipa
-```
+1. Visit [GitHub Releases](https://github.com/smartfaizan005-creator/InstantCopy/releases)
+2. Download the latest `app-release.apk`
+3. Install on your Android device
+
+**Direct Download**: [Latest Release](https://github.com/smartfaizan005-creator/InstantCopy/releases/latest)
+
+> 💡 The APK is automatically built and updated on every code change to the main branch.
 
 ## Build Commands
 
