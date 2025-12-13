@@ -1,0 +1,51 @@
+# Xcode
+**/xcodeproj/project.xcworkspace/xcuserdata
+**/xcodeproj/xcuserdata
+**/*.xcodeproj/xcuserdata
+**/*.xcodeproj/project.xcworkspace/xcuserdata
+**/DerivedData/
+**/build/
+**/*.pbxuser
+**/*.mode1v3
+**/*.mode2v3
+**/*.perspectivev3
+**/*.xcuserstate
+**/.DS_Store
+**/.idea/
+**/Carthage/Build/
+**/Carthage/Carthage.resolved
+**/fastlane/Report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots
+**/fastlane/test_output
+**/fastlane/readme.md
+
+# CocoaPods
+**/Pods/
+
+# Swift Package Manager
+**/.swiftpm/
+
+# Build outputs
+**/.build/
+
+# macOS
+**/.DS_Store
+**/Thumbs.db
+
+# Temporary files
+**/*.tmp
+**/*.temp
+
+# Coverage data
+**/Coverage.profdata
+
+# SwiftUI Previews
+**/*.xcpreview
+
+# Xcode user data
+**/xcuserdata/
+
+# Test artifacts
+**/test-results/
+**/logs/
