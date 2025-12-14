@@ -58,7 +58,6 @@ dependencies {
     implementation("androidx.compose.foundation:foundation:1.5.4")
     implementation("androidx.activity:activity-compose:1.7.2")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("androidx.accessibilityservice:accessibilityservice:1.0.0")
     implementation("androidx.core:core:1.10.1")
     implementation(kotlin("stdlib"))
 }
