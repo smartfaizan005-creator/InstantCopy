@@ -5,13 +5,6 @@ plugins {
     id("com.android.application") version "8.1.2" apply false
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
 tasks {
     register("verifyBuild") {
         doLast {
