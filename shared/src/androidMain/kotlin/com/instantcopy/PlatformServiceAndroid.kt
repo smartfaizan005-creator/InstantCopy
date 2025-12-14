@@ -1,8 +1,8 @@
 package com.instantcopy
 
+import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import android.app.Application
 
 actual class PlatformService actual constructor() {
     companion object {
@@ -31,17 +31,16 @@ actual class PlatformService actual constructor() {
             } else {
                 null
             }
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             null
         }
     }
 
     actual fun setClipboardContent(content: String) {
         try {
-            val clip = android.content.ClipData.newPlainText("InstantCopy", content)
+            val clip = ClipData.newPlainText("InstantCopy", content)
             clipboardManager.setPrimaryClip(clip)
-        } catch (e: Exception) {
-            // Silently fail
+        } catch (_: Exception) {
         }
     }
 
@@ -63,14 +62,10 @@ actual class PlatformService actual constructor() {
     }
 
     actual fun startMonitoring() {
-        // Accessibility service is managed separately
     }
 
     actual fun stopMonitoring() {
-        // Accessibility service is managed separately
     }
 }
 
-actual fun getPlatformService(): PlatformService {
-    return PlatformService()
-}
+actual fun getPlatformService(): PlatformService = PlatformService()
