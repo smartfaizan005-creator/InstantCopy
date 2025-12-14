@@ -12,15 +12,28 @@ A lightweight cross-platform clipboard manager with accessibility permissions fo
 
 ## 📥 Download
 
-Get the latest InstantCopy APK:
+Get the latest InstantCopy APK from GitHub Releases:
 
-1. Visit [GitHub Releases](https://github.com/smartfaizan005-creator/InstantCopy/releases)
-2. Download the latest `app-release.apk`
-3. Install on your Android device
+### GitHub Release Download
 
-**Direct Download**: [Latest Release](https://github.com/smartfaizan005-creator/InstantCopy/releases/latest)
+1. **Visit GitHub Releases**: [InstantCopy Releases](https://github.com/smartfaizan005-creator/InstantCopy/releases)
+2. **Find the latest release** (tagged as "Latest")
+3. **Download the APK**: Look for `app-release.apk` in the assets section
+4. **Verify checksum** (optional): SHA256 checksums are provided for verification
+5. **Install on Android**: Enable "Install from unknown sources" if needed
 
-> 💡 The APK is automatically built and updated on every code change to the main branch.
+**Direct Download Links**:
+- [Latest Release APK](https://github.com/smartfaizan005-creator/InstantCopy/releases/latest)
+- [All Releases](https://github.com/smartfaizan005-creator/InstantCopy/releases)
+
+### Automated Release Process
+
+- **Build System**: GitHub Actions automatically builds release APK on every push to `main`
+- **Version**: Determined from `android/build.gradle.kts` (e.g., v1.0.0)
+- **Artifacts**: APK stored for 90 days with versioned naming
+- **Verification**: Release includes build metadata and checksums
+
+> 💡 The APK is automatically built and published on every code change to the main branch.
 
 ## Build Commands
 
@@ -40,13 +53,16 @@ Get the latest InstantCopy APK:
 ./gradlew :android:assembleDebug
 
 # Release APK (optimized, <3MB)
-./gradlew :android:assembleRelease
+./gradlew clean :android:assembleRelease
 
 # App Bundle (for Play Store)
 ./gradlew :android:bundleRelease
 
-# Check APK size
-ls -lh build/app/outputs/apk/release/app-release.apk
+# Check APK size and location
+ls -lh android/build/outputs/apk/release/app-release.apk
+
+# Verify APK is under 3MB target
+stat -c %s android/build/outputs/apk/release/app-release.apk
 ```
 
 ### iOS Build
@@ -166,13 +182,16 @@ InstantCopy is built with the Kotlin Multiplatform Mobile framework, optimized f
 
 ```bash
 # Build release APK
-./gradlew :android:assembleRelease
+./gradlew clean :android:assembleRelease
 
 # Check APK size
-ls -lh build/app/outputs/apk/release/app-release.apk
+ls -lh android/build/outputs/apk/release/app-release.apk
 
 # Analyze size breakdown
 ./gradlew :android:assembleRelease --info | grep "size"
+
+# Verify release APK path and size
+ls -lh android/build/outputs/apk/release/
 ```
 
 ### Target Sizes

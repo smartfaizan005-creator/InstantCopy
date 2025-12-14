@@ -44,10 +44,23 @@ instantcopy/
 
 ```bash
 # Build release APK
-./gradlew :android:assembleRelease
+./gradlew clean :android:assembleRelease
 
 # Output location
-# build/app/outputs/apk/release/app-release.apk
+# android/build/outputs/apk/release/app-release.apk
+```
+
+### Release Build Verification
+
+```bash
+# Check APK exists and get its size
+ls -lh android/build/outputs/apk/release/
+
+# Verify APK is under 3MB target
+stat -c %s android/build/outputs/apk/release/app-release.apk
+
+# Expected output format
+# android/build/outputs/apk/release/app-release.apk (typically 2.5-2.8MB)
 ```
 
 ### Android App Bundle (for Play Store)
@@ -111,15 +124,16 @@ buildTypes {
 ### Check APK Size
 ```bash
 # After building, check the release APK size
-ls -lh build/app/outputs/apk/release/app-release.apk
+ls -lh android/build/outputs/apk/release/app-release.apk
 
 # Target: < 3MB (3,145,728 bytes)
+# Typical: 2.5-2.8MB (2,621,440 - 2,938,496 bytes)
 ```
 
 ### Analyze APK Contents
 ```bash
 # Extract and analyze the APK
-unzip -l build/app/outputs/apk/release/app-release.apk | tail -1
+unzip -l android/build/outputs/apk/release/app-release.apk | tail -1
 ```
 
 ## Development Build
@@ -176,15 +190,38 @@ rm -rf ~/.gradle/caches/
 
 ## CI/CD Integration
 
-To integrate with CI/CD pipeline:
+### GitHub Automated Release
+
+This project uses GitHub Actions for automated release builds:
+
+**Trigger**: 
+- Push to `main` branch
+- Manual workflow dispatch
+
+**Process**:
+1. Build release APK using `./gradlew :android:assembleRelease`
+2. Determine version from `android/build.gradle.kts`
+3. Create GitHub Release with APK attached
+4. Upload APK artifact for 90 days retention
+
+**Output**:
+- GitHub Release: `v{version}` (e.g., v1.0.0)
+- APK artifact: `instantcopy-{version}-apk`
+
+### Manual Release Process
+
+For local release builds:
 
 ```bash
 # Build and sign APK (requires keystore)
-./gradlew :android:assembleRelease \
+./gradlew clean :android:assembleRelease \
   -Pandroid.injected.signing.store.file=keystore.jks \
   -Pandroid.injected.signing.store.password=$KEYSTORE_PASS \
   -Pandroid.injected.signing.key.alias=$KEY_ALIAS \
   -Pandroid.injected.signing.key.password=$KEY_PASS
+
+# Verify signed APK
+jarsigner -verify android/build/outputs/apk/release/app-release.apk
 ```
 
 ## Performance Notes
