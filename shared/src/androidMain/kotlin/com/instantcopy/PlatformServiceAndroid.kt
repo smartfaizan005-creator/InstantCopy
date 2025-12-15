@@ -2,9 +2,8 @@ package com.instantcopy
 
 import android.content.ClipboardManager
 import android.content.Context
-import android.app.Application
 
-actual class PlatformService actual constructor() {
+actual class PlatformService {
     companion object {
         private var applicationContext: Context? = null
 
