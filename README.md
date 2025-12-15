@@ -10,17 +10,20 @@ A lightweight cross-platform clipboard manager with accessibility permissions fo
 - ⚡ **Lightweight**: Optimized binaries under 3MB
 - ♿ **Accessibility-Based**: Uses platform accessibility services for reliable operation
 
-## 📥 Download
+## Download
 
-Get the latest InstantCopy APK:
+### Android (APK)
 
-1. Visit [GitHub Releases](https://github.com/smartfaizan005-creator/InstantCopy/releases)
-2. Download the latest `app-release.apk`
-3. Install on your Android device
+- **GitHub Releases**: https://github.com/smartfaizan005-creator/InstantCopy/releases
+- **Latest release**: https://github.com/smartfaizan005-creator/InstantCopy/releases/latest
 
-**Direct Download**: [Latest Release](https://github.com/smartfaizan005-creator/InstantCopy/releases/latest)
+Installation:
 
-> 💡 The APK is automatically built and updated on every code change to the main branch.
+1. Download the APK asset from the latest GitHub Release (usually named `android-release-unsigned.apk`).
+2. On your Android device, allow installs from unknown sources if prompted ("Install unknown apps").
+3. Open the downloaded APK and confirm installation.
+
+Note: the APK is auto-built on every push to the `main` branch.
 
 ## Build Commands
 
@@ -39,14 +42,14 @@ Get the latest InstantCopy APK:
 # Debug APK
 ./gradlew :android:assembleDebug
 
-# Release APK (optimized, <3MB)
-./gradlew :android:assembleRelease
+# Release APK
+./gradlew clean :android:assembleRelease
+
+# Output path
+ls -lh android/build/outputs/apk/release/android-release-unsigned.apk
 
 # App Bundle (for Play Store)
 ./gradlew :android:bundleRelease
-
-# Check APK size
-ls -lh build/app/outputs/apk/release/app-release.apk
 ```
 
 ### iOS Build
@@ -166,10 +169,10 @@ InstantCopy is built with the Kotlin Multiplatform Mobile framework, optimized f
 
 ```bash
 # Build release APK
-./gradlew :android:assembleRelease
+./gradlew clean :android:assembleRelease
 
-# Check APK size
-ls -lh build/app/outputs/apk/release/app-release.apk
+# Output APK
+ls -lh android/build/outputs/apk/release/android-release-unsigned.apk
 
 # Analyze size breakdown
 ./gradlew :android:assembleRelease --info | grep "size"
